@@ -73,9 +73,14 @@ const PriorityChart = observer((props: Props) => {
   );
   const parsedData = useMemo(
     () =>
-      priorityChartData && parseChartData(priorityChartData, props.x_axis, props.group_by, props.x_axis_date_grouping),
+      priorityChartData &&
+      parseChartData(priorityChartData, props.x_axis, props.group_by, props.x_axis_date_grouping, {
+        key: "name",
+        order: "asc",
+      }),
     [priorityChartData, props.x_axis, props.group_by, props.x_axis_date_grouping]
   );
+
   const chart_model = props.group_by ? EChartModels.STACKED : EChartModels.BASIC;
 
   const bars: TBarItem<string>[] = useMemo(() => {

@@ -1,8 +1,18 @@
 import { getWeekOfMonth, isValid } from "date-fns";
-import { CHART_X_AXIS_DATE_PROPERTIES, ChartXAxisDateGrouping, ChartXAxisProperty, TO_CAPITALIZE_PROPERTIES } from "@plane/constants";
-import { TChart, TChartDatum } from "@plane/types";
+import {
+  CHART_X_AXIS_DATE_PROPERTIES,
+  ChartXAxisDateGrouping,
+  ChartXAxisProperty,
+  TO_CAPITALIZE_PROPERTIES,
+} from "@plane/constants";
+import { TChart, TChartBaseDatum, TChartDatum } from "@plane/types";
 import { capitalizeFirstLetter, hexToHsl, hslToHex, renderFormattedDate } from "@plane/utils";
 import { renderFormattedDateWithoutYear } from "@/helpers/date-time.helper";
+
+type SortConfig = {
+  key: keyof TChartBaseDatum | (string & {});
+  order: "asc" | "desc";
+};
 
 const getDateGroupingName = (date: string, dateGrouping: ChartXAxisDateGrouping): string => {
   if (!date || ["none", "null"].includes(date.toLowerCase())) return "None";
@@ -47,7 +57,8 @@ export const parseChartData = (
   data: TChart | null | undefined,
   xAxisProperty: ChartXAxisProperty | null | undefined,
   groupByProperty: ChartXAxisProperty | null | undefined,
-  xAxisDateGrouping: ChartXAxisDateGrouping | null | undefined
+  xAxisDateGrouping: ChartXAxisDateGrouping | null | undefined,
+  sortConfig?: SortConfig
 ): TChart => {
   if (!data) {
     return {
@@ -61,7 +72,7 @@ export const parseChartData = (
   const updatedWidgetData: TChartDatum[] = widgetData.map((datum) => {
     const keys = Object.keys(datum);
     const missingKeys = allKeys.filter((key) => !keys.includes(key));
-    const missingValues: Record<string, number> = Object.fromEntries(missingKeys.map(key => [key, 0]));
+    const missingValues: Record<string, number> = Object.fromEntries(missingKeys.map((key) => [key, 0]));
 
     if (xAxisProperty) {
       // capitalize first letter if xAxisProperty is in TO_CAPITALIZE_PROPERTIES and no groupByProperty is set
@@ -79,6 +90,13 @@ export const parseChartData = (
       ...datum,
       ...missingValues,
     };
+  });
+
+  updatedWidgetData.sort((a, b) => {
+    const aValue = a[sortConfig?.key ?? ""] ?? 0;
+    const bValue = b[sortConfig?.key ?? ""] ?? 0;
+
+    return sortConfig?.order === "asc" ? (aValue > bValue ? 1 : -1) : aValue < bValue ? 1 : -1;
   });
 
   // capitalize first letter if groupByProperty is in TO_CAPITALIZE_PROPERTIES
