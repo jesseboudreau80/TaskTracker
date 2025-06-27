@@ -28,6 +28,8 @@ type TChartProps<K extends string, T extends string> = {
     label?: string;
     strokeColor?: string;
     dy?: number;
+    interval?: number;
+    labelVariant?: TBarChartXAxisLabelVariant;
   };
   yAxis: {
     allowDecimals?: boolean;
@@ -66,6 +68,8 @@ export type TBarItem<T extends string> = {
   showBottomBorderRadius?: (barKey: string, payload: any) => boolean;
   shapeVariant?: TBarChartShapeVariant;
 };
+
+export type TBarChartXAxisLabelVariant = "DEFAULT" | "ROTATE_90";
 
 export type TBarChartProps<K extends string, T extends string> = TChartProps<K, T> & {
   bars: TBarItem<T>[];

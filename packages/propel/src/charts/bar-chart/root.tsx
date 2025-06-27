@@ -95,7 +95,7 @@ export const BarChart = React.memo(<K extends string, T extends string>(props: T
           <CartesianGrid stroke="rgba(var(--color-border-100), 0.8)" vertical={false} />
           <XAxis
             dataKey={xAxis.key}
-            tick={(props) => <CustomXAxisTick {...props} />}
+            tick={(props) => <CustomXAxisTick {...props} variant={xAxis.labelVariant} />}
             tickLine={false}
             axisLine={false}
             label={{
@@ -104,6 +104,7 @@ export const BarChart = React.memo(<K extends string, T extends string>(props: T
               className: AXIS_LABEL_CLASSNAME,
             }}
             tickCount={tickCount.x}
+            interval={xAxis.interval}
           />
           <YAxis
             domain={yAxis.domain}

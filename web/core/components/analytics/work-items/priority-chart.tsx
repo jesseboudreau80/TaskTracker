@@ -203,16 +203,19 @@ const PriorityChart = observer((props: Props) => {
       ) : parsedData?.data && parsedData.data.length > 0 ? (
         <>
           <BarChart
-            className="h-[370px] w-full"
+            className="h-[450px] w-full"
             data={parsedData.data}
             bars={bars}
             margin={{
-              bottom: 30,
+              bottom: 90,
             }}
             xAxis={{
               key: "name",
               label: xAxisLabel.replace("_", " "),
-              dy: 30,
+              dy: 80,
+
+              interval: 0,
+              labelVariant: "ROTATE_90",
             }}
             yAxis={{
               key: "count",
