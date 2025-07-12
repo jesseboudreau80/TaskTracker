@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: plane-web
+    env: docker
+    plan: free
+    branch: plane-deploy-ngnix
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    buildFilter:
+      paths:
+        - ./*
+    healthCheckPath: /api/status
+    autoDeploy: false
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: plane-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          name: plane-redis
+          type: redis
+          property: connectionString
+
+databases:
+  - name: plane-db
+    plan: free
+    region: oregon
+    postgresMajorVersion: 15
+
+services:
+  - type: redis
+    name: plane-redis
+    plan: free
+    region: oregon
