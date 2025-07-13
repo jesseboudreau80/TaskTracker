@@ -1,9 +1,10 @@
 {
-  "extends": "tsconfig/nextjs.json",
+  "extends": "../../tsconfig/nextjs.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "types": []
   }
 }

@@ -11,7 +11,7 @@ import aiService from "services/ai.service";
 import useToast from "hooks/use-toast";
 // components
 import { GptAssistantModal } from "components/core";
-import { TipTapEditor } from "components/tiptap";
+import { TipTapEditor } from "@/app/components/tiptap";
 import { PrimaryButton, SecondaryButton, TextArea } from "components/ui";
 // types
 import { ICurrentUserResponse, IPageBlock } from "types";

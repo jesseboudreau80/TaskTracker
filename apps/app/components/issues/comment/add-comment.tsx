@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 // react-hook-form
 import { useForm, Controller } from "react-hook-form";
 // components
-import { TipTapEditor } from "components/tiptap";
+import { TipTapEditor } from "@/app/components/tiptap";
 // ui
 import { Icon, SecondaryButton, Tooltip } from "components/ui";
 // types

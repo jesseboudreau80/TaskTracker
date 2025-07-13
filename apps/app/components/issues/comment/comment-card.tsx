@@ -9,7 +9,7 @@ import useUser from "hooks/use-user";
 // ui
 import { CustomMenu } from "components/ui";
 import { CommentReaction } from "components/issues";
-import { TipTapEditor } from "components/tiptap";
+import { TipTapEditor } from "@/app/components/tiptap";
 // helpers
 import { timeAgo } from "helpers/date-time.helper";
 // types

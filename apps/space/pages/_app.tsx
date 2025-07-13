@@ -8,14 +8,22 @@ import "styles/editor.css";
 import { ToastContextProvider } from "contexts/toast.context";
 // mobx store provider
 import { MobxStoreProvider } from "lib/mobx/store-provider";
-import MobxStoreInit from "lib/mobx/store-init";
 // constants
-import { SITE_NAME, SITE_DESCRIPTION, SITE_URL, TWITTER_USER_NAME, SITE_KEYWORDS, SITE_TITLE } from "constants/seo";
+import {
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  SITE_URL,
+  TWITTER_USER_NAME,
+  SITE_KEYWORDS,
+  SITE_TITLE,
+} from "constants/seo";
+
+// ✅ NEW: Client-only hook logic
+import ClientThemeSetter from "components/ClientThemeSetter";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MobxStoreProvider>
-      <MobxStoreInit />
       <Head>
         <title>{SITE_TITLE}</title>
         <meta property="og:site_name" content={SITE_NAME} />
@@ -33,6 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ToastContextProvider>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ClientThemeSetter /> {/* ✅ Only runs client-side */}
           <Component {...pageProps} />
         </ThemeProvider>
       </ToastContextProvider>

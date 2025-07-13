@@ -11,7 +11,7 @@ import { SecondaryButton } from "components/ui";
 // types
 import { Comment } from "types/issue";
 // components
-import { TipTapEditor } from "components/tiptap";
+import { TipTapEditor } from "@/app/components/tiptap";
 
 const defaultValues: Partial<Comment> = {
   comment_html: "",

@@ -1,5 +1,5 @@
 import { IssueReactions } from "components/issues/peek-overview";
-import { TipTapEditor } from "components/tiptap";
+import { TipTapEditor } from "@/app/components/tiptap";
 import { useRouter } from "next/router";
 // types
 import { IIssue } from "types/issue";

@@ -15,9 +15,17 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-    "paths": {},
-    "plugins": [{ "name": "next" }]
+    "paths": {
+      "components/*": ["components/*"],
+      "lib/*": ["lib/*"],
+      "contexts/*": ["contexts/*"],
+      "styles/*": ["styles/*"],
+      "constants/*": ["constants/*"]
+    },
+    "plugins": [{ "name": "next" }],
+    "types": []
   },
+  "extends": "../../tsconfig/nextjs.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "server.js", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

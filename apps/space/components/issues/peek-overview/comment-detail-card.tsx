@@ -11,7 +11,7 @@ import { timeAgo } from "helpers/date-time.helper";
 // types
 import { Comment } from "types/issue";
 // components
-import { TipTapEditor } from "components/tiptap";
+import { TipTapEditor } from "@/app/components/tiptap";
 
 type Props = {
   workspaceSlug: string;

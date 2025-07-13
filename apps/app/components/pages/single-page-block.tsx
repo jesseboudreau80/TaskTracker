@@ -19,7 +19,7 @@ import useOutsideClickDetector from "hooks/use-outside-click-detector";
 // components
 import { GptAssistantModal } from "components/core";
 import { CreateUpdateBlockInline } from "components/pages";
-import { TipTapEditor } from "components/tiptap";
+import { TipTapEditor } from "@/app/components/tiptap";
 // ui
 import { CustomMenu, TextArea } from "components/ui";
 // icons

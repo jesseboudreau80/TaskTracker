@@ -14,9 +14,38 @@
     "clean": "turbo run clean"
   },
   "devDependencies": {
+    "@types/minimatch": "^6.0.0",
     "eslint-config-custom": "*",
     "prettier": "latest",
     "turbo": "latest"
   },
-  "packageManager": "yarn@1.22.19"
+  "packageManager": "yarn@1.22.19",
+  "dependencies": {
+  "react": "18.2.0",
+  "react-dom": "18.2.0",
+  "@tiptap/core": "^3.0.1",
+  "@tiptap/extension-code-block-lowlight": "^2.26.1",
+  "@tiptap/extension-color": "^2.26.1",
+  "@tiptap/extension-gapcursor": "^2.26.1",
+  "@tiptap/extension-highlight": "^2.26.1",
+  "@tiptap/extension-horizontal-rule": "^3.0.1",
+  "@tiptap/extension-link": "^2.26.1",
+  "@tiptap/extension-placeholder": "^2.26.1",
+  "@tiptap/extension-table-cell": "^3.0.1",
+  "@tiptap/extension-task-item": "^2.26.1",
+  "@tiptap/extension-task-list": "^2.26.1",
+  "@tiptap/extension-text-style": "^2.26.1",
+  "@tiptap/extension-underline": "^2.26.1",
+  "@tiptap/react": "^3.0.1",
+  "@tiptap/starter-kit": "^2.26.1",
+  "highlight.js": "^11.11.1",
+  "lowlight": "^3.3.0",
+  "tiptap-markdown": "^0.8.10"
+},
+
+"resolutions": {
+  "react": "18.2.0",
+  "react-dom": "18.2.0",
+  "minimatch": "^9.0.4"
+}
 }

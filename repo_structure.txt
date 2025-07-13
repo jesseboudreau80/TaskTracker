@@ -1,0 +1,133 @@
+.
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── Dockerfile
+├── LICENSE.txt
+├── README.md
+├── apiserver
+│   ├── Dockerfile.api
+│   ├── Procfile
+│   ├── back_migration.py
+│   ├── bin
+│   │   ├── beat
+│   │   ├── takeoff
+│   │   ├── user_script.py
+│   │   └── worker
+│   ├── gunicorn.config.py
+│   ├── manage.py
+│   ├── plane
+│   │   ├── __init__.py
+│   │   ├── analytics
+│   │   ├── api
+│   │   ├── asgi.py
+│   │   ├── bgtasks
+│   │   ├── celery.py
+│   │   ├── db
+│   │   ├── middleware
+│   │   ├── settings
+│   │   ├── static
+│   │   ├── tests
+│   │   ├── urls.py
+│   │   ├── utils
+│   │   ├── web
+│   │   └── wsgi.py
+│   ├── requirements
+│   │   ├── base.txt
+│   │   ├── local.txt
+│   │   ├── production.txt
+│   │   └── test.txt
+│   ├── requirements.txt
+│   ├── runtime.txt
+│   └── templates
+│       ├── about.html
+│       ├── admin
+│       ├── base.html
+│       ├── emails
+│       └── index.html
+├── app.json
+├── apps
+│   ├── app
+│   │   ├── Dockerfile.dev
+│   │   ├── Dockerfile.web
+│   │   ├── components
+│   │   ├── constants
+│   │   ├── contexts
+│   │   ├── google.d.ts
+│   │   ├── helpers
+│   │   ├── hooks
+│   │   ├── layouts
+│   │   ├── lib
+│   │   ├── manifest.json
+│   │   ├── next-env.d.ts
+│   │   ├── next.config.js
+│   │   ├── package.json
+│   │   ├── pages
+│   │   ├── postcss.config.js
+│   │   ├── public
+│   │   ├── sentry.client.config.js
+│   │   ├── sentry.edge.config.js
+│   │   ├── sentry.properties
+│   │   ├── sentry.server.config.js
+│   │   ├── services
+│   │   ├── store
+│   │   ├── styles
+│   │   ├── tailwind.config.js
+│   │   ├── tsconfig.json
+│   │   └── types
+│   └── space
+│       ├── Dockerfile.space
+│       ├── README.md
+│       ├── components
+│       ├── constants
+│       ├── contexts
+│       ├── helpers
+│       ├── hooks
+│       ├── layouts
+│       ├── lib
+│       ├── next.config.js
+│       ├── package.json
+│       ├── pages
+│       ├── postcss.config.js
+│       ├── public
+│       ├── services
+│       ├── store
+│       ├── styles
+│       ├── tailwind.config.js
+│       ├── tsconfig.json
+│       └── types
+├── deploy
+│   └── heroku
+│       └── Dockerfile
+├── docker-compose-hub.yml
+├── docker-compose.yml
+├── heroku.yml
+├── nginx
+│   ├── Dockerfile
+│   ├── env.sh
+│   ├── nginx-single-docker-image.conf
+│   ├── nginx.conf.template
+│   └── supervisor.conf
+├── package.json
+├── packages
+│   ├── eslint-config-custom
+│   │   ├── index.js
+│   │   └── package.json
+│   ├── tsconfig
+│   │   ├── base.json
+│   │   ├── nextjs.json
+│   │   ├── package.json
+│   │   └── react-library.json
+│   └── ui
+│       ├── button
+│       ├── index.tsx
+│       ├── package.json
+│       └── tsconfig.json
+├── render.yaml
+├── replace-env-vars.sh
+├── repo_structure.txt
+├── setup.sh
+├── start.sh
+├── turbo.json
+└── yarn.lock
+
+55 directories, 76 files

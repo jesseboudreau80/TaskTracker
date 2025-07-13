@@ -7,7 +7,7 @@ import useReloadConfirmations from "hooks/use-reload-confirmation";
 import { useDebouncedCallback } from "use-debounce";
 // components
 import { TextArea } from "components/ui";
-import { TipTapEditor } from "components/tiptap";
+import { TipTapEditor } from "@/app/components/tiptap";
 // types
 import { IIssue } from "types";
 

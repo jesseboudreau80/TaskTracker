@@ -12,18 +12,20 @@ import Highlight from "@tiptap/extension-highlight";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import { lowlight } from "lowlight/lib/core";
 import SlashCommand from "../slash-command";
-import { InputRule } from "@tiptap/core";
+import { InputRule, Node } from "@tiptap/core";
 
 import ts from "highlight.js/lib/languages/typescript";
 
 import "highlight.js/styles/github-dark.css";
-import UniqueID from "@tiptap-pro/extension-unique-id";
 import UpdatedImage from "./updated-image";
 import isValidHttpUrl from "../bubble-menu/utils/link-validator";
 
 lowlight.registerLanguage("ts", ts);
 
-export const TiptapExtensions = (workspaceSlug: string, setIsSubmitting?: (isSubmitting: "submitting" | "submitted" | "saved") => void) => [
+export const TiptapExtensions = (
+  workspaceSlug: string,
+  setIsSubmitting?: (isSubmitting: "submitting" | "submitted" | "saved") => void
+) => [
   StarterKit.configure({
     bulletList: {
       HTMLAttributes: {
@@ -75,6 +77,7 @@ export const TiptapExtensions = (workspaceSlug: string, setIsSubmitting?: (isSub
             const { tr } = state;
             const start = range.from;
             const end = range.to;
+
             // @ts-ignore
             tr.replaceWith(start - 1, end, this.type.create(attributes));
           },
@@ -88,7 +91,7 @@ export const TiptapExtensions = (workspaceSlug: string, setIsSubmitting?: (isSub
   }),
   TiptapLink.configure({
     protocols: ["http", "https"],
-    validate: (url) => isValidHttpUrl(url),
+    validate: (url: string) => isValidHttpUrl(url),
     HTMLAttributes: {
       class:
         "text-custom-primary-300 underline underline-offset-[3px] hover:text-custom-primary-500 transition-colors cursor-pointer",
@@ -100,7 +103,7 @@ export const TiptapExtensions = (workspaceSlug: string, setIsSubmitting?: (isSub
     },
   }),
   Placeholder.configure({
-    placeholder: ({ node }) => {
+    placeholder: ({ node }: { node: Node }) => {
       if (node.type.name === "heading") {
         return `Heading ${node.attrs.level}`;
       }
@@ -108,9 +111,6 @@ export const TiptapExtensions = (workspaceSlug: string, setIsSubmitting?: (isSub
       return "Press '/' for commands...";
     },
     includeChildren: true,
-  }),
-  UniqueID.configure({
-    types: ["image"],
   }),
   SlashCommand(workspaceSlug, setIsSubmitting),
   TiptapUnderline,

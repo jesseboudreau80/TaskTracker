@@ -10,7 +10,7 @@ import useToast from "hooks/use-toast";
 import useUserAuth from "hooks/use-user-auth";
 // ui
 import { Input, PrimaryButton, SecondaryButton } from "components/ui";
-import { TipTapEditor } from "components/tiptap";
+import { TipTapEditor } from "@/app/components/tiptap";
 // types
 import { IIssue, IPageBlock } from "types";
 

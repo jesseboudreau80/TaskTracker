@@ -1,4 +1,4 @@
-import { TipTapEditor } from "components/tiptap";
+import { TipTapEditor } from "@/app/components/tiptap";
 import type { NextPage } from "next";
 import { useCallback, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";

@@ -31,7 +31,7 @@ import {
   SecondaryButton,
   ToggleSwitch,
 } from "components/ui";
-import { TipTapEditor } from "components/tiptap";
+import { TipTapEditor } from "@/app/components/tiptap";
 // icons
 import { SparklesIcon, XMarkIcon } from "@heroicons/react/24/outline";
 // types

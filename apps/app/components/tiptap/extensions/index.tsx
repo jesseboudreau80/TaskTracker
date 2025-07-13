@@ -13,12 +13,11 @@ import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import { lowlight } from "lowlight/lib/core";
 import SlashCommand from "../slash-command";
 import { InputRule } from "@tiptap/core";
-import Gapcursor from '@tiptap/extension-gapcursor'
+import Gapcursor from "@tiptap/extension-gapcursor";
 
 import ts from "highlight.js/lib/languages/typescript";
-
 import "highlight.js/styles/github-dark.css";
-import UniqueID from "@tiptap-pro/extension-unique-id";
+
 import UpdatedImage from "./updated-image";
 import isValidHttpUrl from "../bubble-menu/utils/link-validator";
 import { CustomTableCell } from "./table/table-cell";
@@ -28,7 +27,10 @@ import { TableRow } from "@tiptap/extension-table-row";
 
 lowlight.registerLanguage("ts", ts);
 
-export const TiptapExtensions = (workspaceSlug: string, setIsSubmitting?: (isSubmitting: "submitting" | "submitted" | "saved") => void) => [
+export const TiptapExtensions = (
+  workspaceSlug: string,
+  setIsSubmitting?: (isSubmitting: "submitting" | "submitted" | "saved") => void
+) => [
   StarterKit.configure({
     bulletList: {
       HTMLAttributes: {
@@ -75,7 +77,6 @@ export const TiptapExtensions = (workspaceSlug: string, setIsSubmitting?: (isSub
           find: /^(?:---|—-|___\s|\*\*\*\s)$/,
           handler: ({ state, range, commands }) => {
             commands.splitBlock();
-
             const attributes = {};
             const { tr } = state;
             const start = range.from;
@@ -111,15 +112,11 @@ export const TiptapExtensions = (workspaceSlug: string, setIsSubmitting?: (isSub
         return `Heading ${node.attrs.level}`;
       }
       if (node.type.name === "image" || node.type.name === "table") {
-        return ""
+        return "";
       }
-
       return "Press '/' for commands...";
     },
     includeChildren: true,
-  }),
-  UniqueID.configure({
-    types: ["image"],
   }),
   SlashCommand(workspaceSlug, setIsSubmitting),
   TiptapUnderline,
@@ -146,5 +143,5 @@ export const TiptapExtensions = (workspaceSlug: string, setIsSubmitting?: (isSub
   Table,
   TableHeader,
   CustomTableCell,
-  TableRow
+  TableRow,
 ];
