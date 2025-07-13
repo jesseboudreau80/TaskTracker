@@ -3,8 +3,10 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "baseUrl": ".",
-    "jsx": "preserve",
-    "types": []
-  }
+  "baseUrl": ".",
+  "jsx": "preserve",
+  "types": [],
+  "typeRoots": ["node_modules/@types", "./types"]
+}
+
 }

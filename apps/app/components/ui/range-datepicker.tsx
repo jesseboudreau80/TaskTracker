@@ -1,4 +1,5 @@
-// react-datepicker
+// /apps/app/components/ui/range-datepicker.tsx
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // helpers
@@ -36,7 +37,7 @@ export const CustomRangeDatePicker: React.FC<Props> = ({
 }) => (
   <DatePicker
     selected={value ? new Date(value) : null}
-    onChange={(val) => {
+    onChange={(val: Date | null) => {
       if (!val) onChange(null);
       else onChange(renderDateFormat(val));
     }}
