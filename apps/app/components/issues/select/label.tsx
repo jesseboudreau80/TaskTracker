@@ -53,7 +53,7 @@ export const IssueLabelSelect: React.FC<Props> = ({ setIsOpen, value, onChange, 
     <Combobox
       as="div"
       value={value}
-      onChange={(val) => onChange(val)}
+      onChange={(val: Date | null) => onChange(val)}
       className="relative flex-shrink-0"
       multiple
     >

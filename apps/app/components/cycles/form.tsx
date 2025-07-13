@@ -100,7 +100,7 @@ export const CycleForm: React.FC<Props> = ({ handleFormSubmit, handleClose, stat
                   <DateSelect
                     label="Start date"
                     value={value}
-                    onChange={(val) => onChange(val)}
+                    onChange={(val: Date | null) => onChange(val)}
                     minDate={new Date()}
                     maxDate={maxDate ?? undefined}
                   />
@@ -115,7 +115,7 @@ export const CycleForm: React.FC<Props> = ({ handleFormSubmit, handleClose, stat
                   <DateSelect
                     label="End date"
                     value={value}
-                    onChange={(val) => onChange(val)}
+                    onChange={(val: Date | null) => onChange(val)}
                     minDate={minDate}
                   />
                 )}

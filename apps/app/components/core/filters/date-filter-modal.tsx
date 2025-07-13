@@ -134,7 +134,7 @@ export const DateFilterModal: React.FC<Props> = ({ title, field, isOpen, handleC
                       render={({ field: { value, onChange } }) => (
                         <DatePicker
                           selected={value}
-                          onChange={(val) => onChange(val)}
+                          onChange={(val: Date | null) => onChange(val)}
                           dateFormat="dd-MM-yyyy"
                           calendarClassName="h-full"
                           inline
