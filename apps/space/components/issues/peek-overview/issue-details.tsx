@@ -35,6 +35,6 @@ export const PeekOverviewIssueDetails: React.FC<Props> = ({ issueDetails }) => {
         />
       )}
       <IssueReactions />
-    </div>
+    </div> 
   );
 };
